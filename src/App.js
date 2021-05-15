@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import SudokuInstance from './components/SudokuInstance'
 
+const testBoard = require('./utils/TestBoard.json')
 
 const App = () => {
   const [GameInstance, setGameInstance] = useState(<div>Game is Loading</div>)
@@ -12,10 +13,10 @@ const App = () => {
   }
 
   useEffect(() => {
-    const url = 'https://sugoku.herokuapp.com/board?difficulty=hard'
+    const url = 'https://sugoku.herokuapp.com/board?difficulty=easy'
     getBoardFromUrl(url)
       .then(response => {
-        setGameInstance( <SudokuInstance boardFromUrl={response.board}/> )
+        setGameInstance( <SudokuInstance boardFromUrl={/*response.board*/testBoard.initialBoard}/> )
       })
   }, [])
 
