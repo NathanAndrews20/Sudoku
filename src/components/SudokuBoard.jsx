@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Cell from './Cell'
 import '../styles/board.css'
 
 const SudokuBoard = ({ boardObject }) => {
+  const [currentBoard, setCurrentBoard] = useState(boardObject)
+
   return (
     <div id='sudoku-board'>
-      {boardObject.map(row => row.map(cell => <Cell />))}
+      {currentBoard.map(row => 
+        row.map(cellNode => 
+          <Cell key={`${cellNode.rowIndex}${cellNode.columnIndex}`}
+            cellData={cellNode}
+          />
+        )
+      )}
     </div>
   )
 }

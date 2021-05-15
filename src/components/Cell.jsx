@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const Cell = () => {
+const Cell = ({ cellData }) => {
+  const [currentValue, setCurrentValue] = useState(cellData.value)
+
   return (
-    <div className='cell'></div>
+    <div className='cell'>
+      {(currentValue === 0) ? "" : currentValue}
+    </div>
   )
 }
 

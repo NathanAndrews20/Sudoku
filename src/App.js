@@ -3,7 +3,7 @@ import SudokuInstance from './components/SudokuInstance'
 
 
 const App = () => {
-  const [boardFromUrl, setBoardFromUrl] = useState([])
+  const [GameInstance, setGameInstance] = useState(<div>Game is Loading</div>)
 
   const getBoardFromUrl = async (url) => {
     const rawBoard = await fetch(url)
@@ -15,15 +15,11 @@ const App = () => {
     const url = 'https://sugoku.herokuapp.com/board?difficulty=hard'
     getBoardFromUrl(url)
       .then(response => {
-      setBoardFromUrl(response.board)
+        setGameInstance( <SudokuInstance boardFromUrl={response.board}/> )
       })
-  }, [setBoardFromUrl])
+  }, [])
 
-  return (
-    <div className="App">
-      <SudokuInstance boardFromUrl={boardFromUrl}/>
-    </div>
-  )
+  return GameInstance
 }
 
 export default App
