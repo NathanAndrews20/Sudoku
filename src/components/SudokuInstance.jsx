@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import SudokuBoard from './SudokuBoard'
+import UtilityFunctions from '../utils/UtilityFunctions.js'
 
 const SudokuInstance = ({ boardFromUrl }) => {
   const buildBoardObject = boardArray => {
@@ -9,8 +10,9 @@ const SudokuInstance = ({ boardFromUrl }) => {
       const boardRow = []
       for (let colIndex = 0; colIndex < boardArrayRow.length; colIndex++) {
         boardRow.push({
-          rowIndex: rowIndex,
-          colIndex: colIndex,
+          rowIndex,
+          colIndex,
+          subgrid: UtilityFunctions.getSubgrid(rowIndex, colIndex),
           value: boardArray[rowIndex][colIndex],
           isStatic: boardArray[rowIndex][colIndex] !== 0
         })

@@ -8,7 +8,7 @@ const Cell = ({ cellData, isStaticCell, onFocus }) => {
       className='cell' 
       value={(currentValue === 0) ? "" : currentValue}
       onChange={event => setCurrentValue(event.target.value)}
-      onFocus={() => onFocus([cellData.rowIndex, cellData.colIndex])}
+      onFocus={() => onFocus([cellData.rowIndex, cellData.colIndex, cellData.subgrid])}
       style={{backgroundColor: cellData.color}}
       readOnly={isStaticCell}
     />

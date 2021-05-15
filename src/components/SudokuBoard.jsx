@@ -4,20 +4,20 @@ import '../styles/board.css'
 
 const SudokuBoard = ({ boardObject }) => {
   const [currentBoard, setCurrentBoard] = useState(boardObject)
-  const [coordinatesOfFocusedCell, setCoordinatesOfFocusedCell] = useState([])
+  const [locationDataOfFocusedCell, setLocationDataOfFocusedCell] = useState([])
 
-  const getCellCoordinates = (coordinatesArray) => {
-    setCoordinatesOfFocusedCell(coordinatesArray)
+  const getCellLocationData = (coordinatesArray) => {
+    setLocationDataOfFocusedCell(coordinatesArray)
   }
 
   useEffect(() => {
     const tempBoard = []
-    const [focusedRow, focusedCol] = coordinatesOfFocusedCell
+    const [focusedRow, focusedCol, focusedSubgrid] = locationDataOfFocusedCell
     for (let rowIndex = 0; rowIndex < 9; rowIndex++) {
       const tempRow = []
       for (let colIndex = 0; colIndex < 9; colIndex++) {
         const cellNode = boardObject[rowIndex][colIndex]
-        if(focusedRow === cellNode.rowIndex || focusedCol === cellNode.colIndex) {
+        if(focusedRow === cellNode.rowIndex || focusedCol === cellNode.colIndex || focusedSubgrid === cellNode.subgrid) {
           tempRow.push({
             ...cellNode,
             color: 'rgb(127, 160, 172)'
@@ -29,7 +29,7 @@ const SudokuBoard = ({ boardObject }) => {
       tempBoard.push(tempRow)
     }
     setCurrentBoard(tempBoard)
-  }, [boardObject, coordinatesOfFocusedCell])
+  }, [boardObject, locationDataOfFocusedCell])
 
   return (
     <div id='sudoku-board'>
@@ -38,7 +38,7 @@ const SudokuBoard = ({ boardObject }) => {
           <Cell key={`${cellNode.rowIndex}${cellNode.colIndex}`}
             cellData={cellNode}
             isStaticCell={cellNode.isStatic}
-            onFocus={getCellCoordinates}
+            onFocus={getCellLocationData}
           />
         )
       )}
