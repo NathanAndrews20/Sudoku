@@ -4,9 +4,11 @@ const Cell = ({ cellData }) => {
   const [currentValue, setCurrentValue] = useState(cellData.value)
 
   return (
-    <div className='cell'>
-      {(currentValue === 0) ? "" : currentValue}
-    </div>
+    <input
+      className='cell' 
+      value={(currentValue === 0) ? "" : currentValue}
+      onChange={event => setCurrentValue(event.target.value)}
+    />
   )
 }
 

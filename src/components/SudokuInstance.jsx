@@ -22,7 +22,12 @@ const SudokuInstance = ({ boardFromUrl }) => {
   const [boardObject, setBoardObject] = useState(buildBoardObject(boardFromUrl))
 
 
-  return <SudokuBoard boardObject={boardObject}/>
+  return (
+    <form id="sudoku-instance-form">
+      <SudokuBoard boardObject={boardObject}/>
+      <input type="submit"/>
+    </form>
+  )
 }
 
 export default SudokuInstance
