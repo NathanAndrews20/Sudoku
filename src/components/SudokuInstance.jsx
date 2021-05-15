@@ -11,7 +11,8 @@ const SudokuInstance = ({ boardFromUrl }) => {
         boardRow.push({
           rowIndex: rowIndex,
           colIndex: colIndex,
-          value: boardArray[rowIndex][colIndex]
+          value: boardArray[rowIndex][colIndex],
+          isStatic: boardArray[rowIndex][colIndex] !== 0
         })
       }
       board.push(boardRow)

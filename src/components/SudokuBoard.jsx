@@ -11,6 +11,7 @@ const SudokuBoard = ({ boardObject }) => {
         row.map(cellNode => 
           <Cell key={`${cellNode.rowIndex}${cellNode.columnIndex}`}
             cellData={cellNode}
+            isStaticCell={cellNode.isStatic}
           />
         )
       )}

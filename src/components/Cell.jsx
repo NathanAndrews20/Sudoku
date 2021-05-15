@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Cell = ({ cellData }) => {
+const Cell = ({ cellData, isStaticCell }) => {
   const [currentValue, setCurrentValue] = useState(cellData.value)
 
   return (
@@ -8,6 +8,7 @@ const Cell = ({ cellData }) => {
       className='cell' 
       value={(currentValue === 0) ? "" : currentValue}
       onChange={event => setCurrentValue(event.target.value)}
+      readOnly={isStaticCell}
     />
   )
 }
