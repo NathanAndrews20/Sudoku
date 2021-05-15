@@ -35,7 +35,7 @@ const SudokuBoard = ({ boardObject }) => {
     <div id='sudoku-board'>
       {currentBoard.map(row => 
         row.map(cellNode => 
-          <Cell key={`${cellNode.rowIndex}${cellNode.columnIndex}`}
+          <Cell key={`${cellNode.rowIndex}${cellNode.colIndex}`}
             cellData={cellNode}
             isStaticCell={cellNode.isStatic}
             onFocus={getCellCoordinates}
