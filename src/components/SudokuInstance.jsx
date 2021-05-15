@@ -22,9 +22,13 @@ const SudokuInstance = ({ boardFromUrl }) => {
 
   const [boardObject, setBoardObject] = useState(buildBoardObject(boardFromUrl))
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+  }
+
 
   return (
-    <form id="sudoku-instance-form">
+    <form id="sudoku-instance-form" onSubmit={handleSubmit}>
       <SudokuBoard boardObject={boardObject}/>
       <input type="submit"/>
     </form>
