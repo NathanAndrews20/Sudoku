@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import SudokuInstance from './components/SudokuInstance'
 
 
 const App = () => {
@@ -20,7 +21,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {JSON.stringify(boardFromUrl)}
+      <SudokuInstance boardFromUrl={boardFromUrl}/>
     </div>
   )
 }
