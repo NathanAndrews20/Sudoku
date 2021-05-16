@@ -17,27 +17,17 @@ const SudokuBoard = ({ boardObject, onChange }) => {
   }
 
   useEffect(() => {
-    const tempBoard = []
+    const tempBoard = [...boardObject]
     const [focusedRow, focusedCol, focusedSubgrid] = locationDataOfFocusedCell
     for (let rowIndex = 0; rowIndex < 9; rowIndex++) {
-      const tempRow = []
       for (let colIndex = 0; colIndex < 9; colIndex++) {
-        const cellNode = boardObject[rowIndex][colIndex]
-        if(focusedRow === cellNode.rowIndex || focusedCol === cellNode.colIndex || focusedSubgrid === cellNode.subgrid) {
-          tempRow.push({
-            ...cellNode,
-            color: 'rgb(127, 160, 172)'
-          })
-          continue
-        }
-        tempRow.push({
-          ...cellNode,
-          color: 'lightblue'
-        })
+        const cellNode = tempBoard[rowIndex][colIndex]
+        const needsHighlight = (focusedRow === cellNode.rowIndex || focusedCol === cellNode.colIndex || focusedSubgrid === cellNode.subgrid)
+        tempBoard[rowIndex][colIndex].color = needsHighlight ? 'rgb(127, 160, 172)' : 'lightblue'
       }
-      tempBoard.push(tempRow)
     }
     setCurrentBoard(tempBoard)
+    console.log(tempBoard)
   }, [boardObject, locationDataOfFocusedCell])
 
   return (
