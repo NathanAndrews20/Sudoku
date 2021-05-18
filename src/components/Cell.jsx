@@ -5,6 +5,7 @@ const Cell = ({ cellData, isStaticCell, onFocus, onChange }) => {
 
   return (
     <input
+      id={`c${cellData.rowIndex}${cellData.colIndex}`}
       className='cell' 
       value={(currentValue === 0) ? "" : currentValue}
       onChange={event => {

@@ -27,7 +27,6 @@ const SudokuBoard = ({ boardObject, onChange }) => {
       }
     }
     setCurrentBoard(tempBoard)
-    console.log(tempBoard)
   }, [boardObject, locationDataOfFocusedCell])
 
   return (
