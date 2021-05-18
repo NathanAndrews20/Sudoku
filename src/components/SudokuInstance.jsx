@@ -11,14 +11,14 @@ const SudokuInstance = ({ boardFromUrl }) => {
     for (let rowIndex = 0; rowIndex < boardArray.length; rowIndex++) {
       const boardArrayRow = boardArray[rowIndex]
       const boardRow = []
-      for (let colIndex = 0; colIndex < boardArrayRow.length; colIndex++) {
+      for (let colIndex = 0; colIndex < boardArrayRow.length; colIndex++) { 
         boardRow.push({
           rowIndex,
           colIndex,
           subgrid: UtilityFunctions.getSubgrid(rowIndex, colIndex),
           value: boardArray[rowIndex][colIndex],
           isStatic: boardArray[rowIndex][colIndex] !== 0,
-          borderWidths: UtilityFunctions.getBorderStyling(rowIndex, colIndex)
+          cellBorderWidths: UtilityFunctions.getBorderStyling(rowIndex, colIndex)
         })
       }
       board.push(boardRow)

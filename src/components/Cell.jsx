@@ -13,7 +13,7 @@ const Cell = ({ cellData, isStaticCell, onFocus, onChange }) => {
         onChange(parseInt(event.target.value) || 0, cellData.rowIndex, cellData.colIndex)
       }}
       onFocus={() => onFocus([cellData.rowIndex, cellData.colIndex, cellData.subgrid])}
-      style={{backgroundColor: cellData.color, borderWidth: cellData.borderWidths}}
+      style={{backgroundColor: cellData.color, borderWidth: cellData.cellBorderWidths}}
       readOnly={isStaticCell}
     />
   )
