@@ -16,7 +16,7 @@ const App = () => {
     const url = 'https://sugoku.herokuapp.com/board?difficulty=easy'
     getBoardFromUrl(url)
       .then(response => {
-        setGameInstance( <SudokuInstance boardFromUrl={/*response.board*/testBoard.initialBoard}/> )
+        setGameInstance( <SudokuInstance boardFromUrl={/*response.board*/testBoard.solvedBoard}/> )
       })
   }, [])
 

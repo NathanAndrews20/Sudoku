@@ -17,7 +17,8 @@ const SudokuInstance = ({ boardFromUrl }) => {
           colIndex,
           subgrid: UtilityFunctions.getSubgrid(rowIndex, colIndex),
           value: boardArray[rowIndex][colIndex],
-          isStatic: boardArray[rowIndex][colIndex] !== 0
+          isStatic: boardArray[rowIndex][colIndex] !== 0,
+          borderWidths: UtilityFunctions.getBorderStyling(rowIndex, colIndex)
         })
       }
       board.push(boardRow)
