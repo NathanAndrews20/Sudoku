@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import SudokuInstance from './components/SudokuInstance'
+import SudokuInstance from './components/SudokuInstance/SudokuInstance'
+import SelectDifficultyModalBox from './components/SelectDifficultyComponents/SelectDifficultyModalBox'
+import './styles/board.css'
+import './styles/select-difficulty.css'
 
 const testBoard = require('./utils/TestBoard.json')
 
@@ -20,7 +23,12 @@ const App = () => {
       })
   }, [])
 
-  return GameInstance
+  return (
+    <div>
+      <SelectDifficultyModalBox />
+      {GameInstance}
+    </div>
+  )
 }
 
 export default App

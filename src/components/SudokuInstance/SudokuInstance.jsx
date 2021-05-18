@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import SudokuBoard from './SudokuBoard'
-import UtilityFunctions from '../utils/UtilityFunctions.js'
-import SudokuChecker from '../utils/SudokuChecker.js'
+import UtilityFunctions from '../../utils/UtilityFunctions.js'
+import SudokuChecker from '../../utils/SudokuChecker.js'
 
 const SudokuInstance = ({ boardFromUrl }) => {
   const [isSolved, setIsSolved] = useState(false)

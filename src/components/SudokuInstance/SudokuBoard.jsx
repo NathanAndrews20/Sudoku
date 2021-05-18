@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Cell from './Cell'
-import '../styles/board.css'
 
 const focusedCellColor = '#BDDBFE' // lightblue
 const focusedRowColSubgridColor = '#E1E6EC' // lightgrey
