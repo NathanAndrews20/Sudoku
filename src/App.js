@@ -12,17 +12,11 @@ const App = () => {
   const [needToLoadGame, setNeedToLoadGame] = useState(true)
   const [needToSelectDifficulty, setNeedToSelectDifficulty] = useState(false)
 
-
   const getBoardFromUrl = async (url) => {
     const rawBoard = await fetch(url)
     const boardAsJSON = await rawBoard.json()
     return boardAsJSON
   }
-
-  useEffect(() => {
-    if(needToSelectDifficulty) {
-    }
-  }, [needToSelectDifficulty])
  
   useEffect(() => {
     if(needToLoadGame) {
