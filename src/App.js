@@ -10,6 +10,7 @@ const App = () => {
   const [gameInstance, setGameInstance] = useState(<div>Game is Loading</div>)
   const [url, setUrl] = useState('https://sugoku.herokuapp.com/board?difficulty=easy')
   const [needToLoadGame, setNeedToLoadGame] = useState(true)
+  const [needToSelectDifficulty, setNeedToSelectDifficulty] = useState(false)
 
 
   const getBoardFromUrl = async (url) => {
@@ -18,6 +19,11 @@ const App = () => {
     return boardAsJSON
   }
 
+  useEffect(() => {
+    if(needToSelectDifficulty) {
+    }
+  }, [needToSelectDifficulty])
+ 
   useEffect(() => {
     if(needToLoadGame) {
       getBoardFromUrl(url)
@@ -28,19 +34,24 @@ const App = () => {
     }
   }, [url, needToLoadGame])
 
-  const getDifficulty = (difficulty) => {
+  const handleDifficultySelection = (difficulty) => {
     setUrl(`https://sugoku.herokuapp.com/board?difficulty=${difficulty}`)
-    console.log(url)
+    setNeedToSelectDifficulty(false)
   }
 
   const handleNewGame = () => {
     setNeedToLoadGame(true)
   }
 
+  const handleSelectDifficulty = () => {
+    setNeedToSelectDifficulty(true)
+  }
+
   return (
     <div>
-      <SelectDifficultyModalBox onSelection={getDifficulty} />
-      <button id="new-game" onClick={handleNewGame}>New Game</button>
+      <SelectDifficultyModalBox onSelection={handleDifficultySelection} visibility={needToSelectDifficulty}/>
+      <button id="new-game-button" onClick={handleNewGame}>New Game</button>
+      <button id="select-difficulty-button" onClick={handleSelectDifficulty}>Select Difficulty</button>
       {gameInstance}
     </div>
   )
