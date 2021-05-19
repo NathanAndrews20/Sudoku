@@ -11,6 +11,26 @@ const getBorderStyling = (rowIndex, colIndex, majorAxisWidth) => {
   return cellBorderWidthsArray.reduce((acc, cur) => acc + `${cur}px `, '')
 }
 
-const exports = { getSubgrid, getBorderStyling }
+const buildBoardObject = boardArray => {
+  const board = []
+  for (let rowIndex = 0; rowIndex < boardArray.length; rowIndex++) {
+    const boardArrayRow = boardArray[rowIndex]
+    const boardRow = []
+    for (let colIndex = 0; colIndex < boardArrayRow.length; colIndex++) { 
+      boardRow.push({
+        rowIndex,
+        colIndex,
+        subgrid: getSubgrid(rowIndex, colIndex),
+        value: boardArray[rowIndex][colIndex],
+        isStatic: boardArray[rowIndex][colIndex] !== 0,
+        cellBorderWidths: getBorderStyling(rowIndex, colIndex, 5)
+      })
+    }
+    board.push(boardRow)
+  }
+  return board
+}
+
+const exports = { getSubgrid, getBorderStyling, buildBoardObject }
 
 export default exports

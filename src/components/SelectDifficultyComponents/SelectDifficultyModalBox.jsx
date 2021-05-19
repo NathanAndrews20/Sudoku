@@ -1,17 +1,16 @@
 import React from 'react';
 import DifficultyButton from './DifficultyButton'
-import RandomDifficultyButton from './RandomDifficultyButton'
 
-const NewGameModalBox = () => {
+const SelectDifficultyModalBox = ({ onSelection }) => {
   return (
-    <div id="NewGameModalBox">
+    <div id="select-difficulty-modal-box">
       <label>Select Difficulty</label>
-      <DifficultyButton difficulty={'Easy'} />
-      <DifficultyButton difficulty={'Medium'} />
-      <DifficultyButton difficulty={'Hard'} />
-      <RandomDifficultyButton />
+      <DifficultyButton difficulty={'easy'} onSelection={onSelection}/>
+      <DifficultyButton difficulty={'medium'} onSelection={onSelection}/>
+      <DifficultyButton difficulty={'hard'} onSelection={onSelection}/>
+      <DifficultyButton difficulty={'random'} onSelection={onSelection}/>
     </div>
   )
 }
 
-export default NewGameModalBox
+export default SelectDifficultyModalBox

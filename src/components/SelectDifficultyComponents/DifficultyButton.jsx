@@ -1,8 +1,8 @@
 import React from 'react'
 
-const DifficultyButton = ({ difficulty }) => {
+const DifficultyButton = ({ difficulty, onSelection }) => {
   return (
-    <button>{difficulty}</button>
+    <button onClick={() => onSelection(difficulty)}>{difficulty}</button>
   )
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const staticCellColor = '#000' // black
 const dynamicCellColor = '#315AAF' // dark blue
@@ -6,6 +6,10 @@ const dynamicCellColor = '#315AAF' // dark blue
 const Cell = ({ cellData, isStatic, onFocus, onChange }) => {
   const [currentValue, setCurrentValue] = useState(cellData.value)
   const textColor = isStatic ? staticCellColor : dynamicCellColor
+
+  useEffect(() => {
+    setCurrentValue(cellData.value)
+  }, [cellData.value])
 
   return (
     <input
