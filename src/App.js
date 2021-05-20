@@ -45,7 +45,7 @@ const App = () => {
         onSelection={handleDifficultySelection} 
         visibility={needToSelectDifficulty}/>
       <h1 id='heading'>Sudoku</h1>
-      <h2 id='sub-heading'>The classic combinatorial game of l</h2>
+      <h2 id='sub-heading'>The classic combinatorial game of logic</h2>
       <div id='operation-buttons-container'>
         <button
           id="new-game-button"
