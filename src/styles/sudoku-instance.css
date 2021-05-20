@@ -1,0 +1,47 @@
+*{
+  box-sizing: border-box;
+  --cell-width: 5vmin;
+  --major-axis-width: 0.75vmin;
+  --template-no-border: repeat(3, max(var(--cell-width), 34.5px));
+  --template-with-border: calc(var(--major-axis-width) + max(var(--cell-width), 34.5px)) repeat(2, max(var(--cell-width), 34.5px));
+
+}
+
+#sudoku-board{
+  display: grid;
+  grid-template-rows: var(--template-no-border) var(--template-with-border) var(--template-with-border);
+  grid-template-columns: var(--template-no-border) var(--template-with-border) var(--template-with-border);
+  background-color: #000;
+  width: fit-content;
+  gap: 1px 1px;
+  border: solid #000 var(--major-axis-width);
+  min-height: 328.844px;
+  min-width: 328.844px;
+}
+
+.cell {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #FEFEFE;
+  justify-content: center;
+  align-items: center;
+  font-size: 4vmin;
+  border: none;
+  border-style: solid;
+  border-color:#000;
+  padding: 0;
+  text-align: center;
+  min-width: 34.5px;
+  min-height: 34.5px;
+}
+
+.cell:focus{
+  outline: none;
+}
+
+
+#submit-button{
+  margin-top: 10px;
+  min-height: 15px;
+}

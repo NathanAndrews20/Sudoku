@@ -21,10 +21,10 @@ const SudokuInstance = ({ boardFromUrl }) => {
   }
 
   return (
-    <form id="sudoku-instance-form" onSubmit={handleSubmit}>
+    <form id="sudoku-instance-form" onSubmit={handleSubmit} autoComplete='off'>
       <div>This board {isSolved ? "is" : "is not"} solved</div>
       <SudokuBoard boardObject={boardObject} onChange={getUpdatedBoardObject} boardFromUrl={boardFromUrl}/>
-      <input type="submit" />
+      <input id='submit-button' type="submit" value='How am I doing?'/>
     </form>
   )
 }

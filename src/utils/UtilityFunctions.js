@@ -8,7 +8,7 @@ const getBorderStyling = (rowIndex, colIndex, majorAxisWidth) => {
   const cellBorderWidthsArray = [0,0,0,0]
   if (rowIndex === 3 || rowIndex === 6) cellBorderWidthsArray[0] = majorAxisWidth
   if (colIndex === 3 || colIndex === 6) cellBorderWidthsArray[3] = majorAxisWidth
-  return cellBorderWidthsArray.reduce((acc, cur) => acc + `${cur}px `, '')
+  return cellBorderWidthsArray.reduce((acc, cur) => acc + `${cur}vmin `, '')
 }
 
 const buildBoardObject = boardArray => {
@@ -23,7 +23,7 @@ const buildBoardObject = boardArray => {
         subgrid: getSubgrid(rowIndex, colIndex),
         value: boardArray[rowIndex][colIndex],
         isStatic: boardArray[rowIndex][colIndex] !== 0,
-        cellBorderWidths: getBorderStyling(rowIndex, colIndex, 5)
+        cellBorderWidths: getBorderStyling(rowIndex, colIndex, 0.75)
       })
     }
     board.push(boardRow)

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import SudokuInstance from './components/SudokuInstance/SudokuInstance'
 import SelectDifficultyModalBox from './components/SelectDifficultyComponents/SelectDifficultyModalBox'
-import './styles/board.css'
-import './styles/select-difficulty.css'
 
 const testBoard = require('./utils/TestBoard.json')
 
@@ -42,10 +40,22 @@ const App = () => {
   }
 
   return (
-    <div>
-      <SelectDifficultyModalBox onSelection={handleDifficultySelection} visibility={needToSelectDifficulty}/>
-      <button id="new-game-button" onClick={handleNewGame}>New Game</button>
-      <button id="select-difficulty-button" onClick={handleSelectDifficulty}>Select Difficulty</button>
+    <div id='app'>
+      <SelectDifficultyModalBox
+        onSelection={handleDifficultySelection} 
+        visibility={needToSelectDifficulty}/>
+      <h1 id='heading'>Sudoku</h1>
+      <h2 id='sub-heading'>The classic combinatorial game of l</h2>
+      <div id='operation-buttons-container'>
+        <button
+          id="new-game-button"
+          onClick={handleNewGame}>New Game
+        </button>
+        <button
+          id="select-difficulty-button"
+          onClick={handleSelectDifficulty}>Select Difficulty
+        </button>
+      </div>
       {gameInstance}
     </div>
   )
