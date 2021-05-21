@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import SudokuInstance from './components/SudokuInstance/SudokuInstance'
 import SelectDifficultyModalBox from './components/SelectDifficultyComponents/SelectDifficultyModalBox'
 
-const testBoard = require('./utils/TestBoard.json')
-
 const App = () => {
   const [gameInstance, setGameInstance] = useState(<div>Game is Loading</div>)
   const [url, setUrl] = useState('https://sugoku.herokuapp.com/board?difficulty=easy')
@@ -20,7 +18,7 @@ const App = () => {
     if(needToLoadGame) {
       getBoardFromUrl(url)
       .then(response => {
-        setGameInstance( <SudokuInstance boardFromUrl={response.board/*testBoard.initialBoard*/ } /> )
+        setGameInstance( <SudokuInstance boardFromUrl={response.board} /> )
         setNeedToLoadGame(false)
       })
     }
