@@ -23,6 +23,7 @@ const Cell = ({ cellData, isStatic, onFocus, onChange }) => {
       onFocus={() => onFocus([cellData.rowIndex, cellData.colIndex, cellData.subgrid])}
       style={{color: textColor, backgroundColor: cellData.color, borderWidth: cellData.cellBorderWidths}}
       readOnly={isStatic}
+      maxLength={1}
     />
   )
 }
